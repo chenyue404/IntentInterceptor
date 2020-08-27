@@ -2,15 +2,14 @@ package com.sorcererxw.intentinterceptor.ui.adapters;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.v4.util.Pair;
-import android.support.v7.widget.RecyclerView;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.util.Pair;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.sorcererxw.intentinterceptor.R;
 import com.sorcererxw.intentinterceptor.models.DataBean;
@@ -18,12 +17,6 @@ import com.sorcererxw.intentinterceptor.utils.HtmlBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
 /**
  * @description:
@@ -118,12 +111,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     }
 
     static class DataViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.textView_item_content)
         TextView content;
 
         public DataViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            content = itemView.findViewById(R.id.textView_item_content);
         }
     }
 
@@ -137,14 +129,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
             mDataBean = dataBean;
         }
 
-        @BindView(R.id.textView_dialog_content)
         TextView content;
 
         @Override
         public void onClick(View v) {
             Dialog dialog = new Dialog(mContext);
             View view = View.inflate(mContext, R.layout.dialog_data, null);
-            ButterKnife.bind(this, view);
+            content = view.findViewById(R.id.textView_dialog_content);
             DataBean dataBean = mDataBean;
 
             HtmlBuilder htmlBuilder = new HtmlBuilder();

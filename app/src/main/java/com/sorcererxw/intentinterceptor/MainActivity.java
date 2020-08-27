@@ -2,13 +2,14 @@ package com.sorcererxw.intentinterceptor;
 
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -24,8 +25,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -35,10 +34,7 @@ import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
-
-    @BindView(R.id.textView_hint)
     TextView mHintTextView;
 
     private DataAdapter mDataAdapter;
@@ -48,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         DataUtil.createFile(this);
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mHintTextView = findViewById(R.id.textView_hint);
+
         mDataAdapter = new DataAdapter(this);
         mRecyclerView.setAdapter(mDataAdapter);
         mRecyclerView.setLayoutManager(

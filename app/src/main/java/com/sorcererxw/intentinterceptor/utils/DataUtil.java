@@ -85,7 +85,7 @@ public class DataUtil {
         builder.append("{")
                 .append(String.format("\"time\": \"%s\",", simpleDateFormat.format(c.getTime())))
                 .append(String.format("\"from\": \"%s\",", from))
-                .append(String.format("\"to\": \"%s\",", intent.getComponent().getClassName()))
+                .append(String.format("\"to\": \"%s\",", intent.getComponent() == null ? "null" : intent.getComponent().getClassName()))
                 .append(String.format("\"action\": \"%s\",", intent.getAction()))
                 .append(String.format("\"clipData\": \"%s\",", intent.getClipData()))
                 .append(String.format((Locale) null, "\"flags\": %d,", intent.getFlags()))

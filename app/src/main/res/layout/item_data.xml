@@ -4,7 +4,7 @@
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -19,6 +19,6 @@
             android:textColor="@color/item_value_text_color"
             android:textIsSelectable="false"
             android:textSize="@dimen/item_value_text_size"
-            android:typeface="monospace"/>
-    </android.support.v7.widget.CardView>
+            android:typeface="monospace" />
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
